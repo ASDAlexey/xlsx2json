@@ -1,3 +1,8 @@
+/**
+ * This module convert file with ext .xlsx to file with etx .json, convert Excel data to json format
+ * to run the transformation created in the package.json command
+ * the launch which should be made as follows: npm run xlsx2json
+ */
 'use strict';
 const fs = require('fs');
 const path = require('path');
@@ -23,11 +28,11 @@ class Converter {
 
         fs.writeFile(output, jsonDataLower, (err) => {
           if (err) console.log(err);
-          else console.log('The file is saved');
+          else console.log(`The file ${input} was converted to file ${output}`);
         });
       }
     });
   }
 }
 
-Converter.xlsx2json('./mcc.xlsx');
+Converter.xlsx2json(path.join(__dirname, 'mcc.xlsx'));
